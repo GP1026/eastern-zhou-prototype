@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>廉颇 · 赵壁 | 春秋战国英雄化角色设定</title>
+  <style>
+    :root {
+      --paper: #ead7b4;
+      --ink: #211a16;
+      --red: #7d2b24;
+      --iron: #262522;
+      --bronze: #a6783c;
+      --earth: #6b5438;
+      --line: rgba(33, 26, 22, .18);
+      font-family: "PingFang SC", "Noto Serif SC", "Songti SC", serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(125, 43, 36, .2), transparent 24rem),
+        radial-gradient(circle at 90% 18%, rgba(166, 120, 60, .18), transparent 26rem),
+        linear-gradient(135deg, #efe0c2 0%, #c9aa75 100%);
+    }
+
+    .page {
+      width: min(1500px, calc(100% - 48px));
+      margin: 24px auto 44px;
+      border: 1px solid rgba(33, 26, 22, .24);
+      background: rgba(242, 225, 190, .86);
+      box-shadow: 0 32px 100px rgba(35, 22, 10, .24);
+      overflow: hidden;
+    }
+
+    .top {
+      display: grid;
+      grid-template-columns: minmax(0, .8fr) minmax(460px, 1.2fr);
+      min-height: 720px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .intro {
+      padding: 54px 46px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background:
+        linear-gradient(90deg, rgba(33,26,22,.06) 1px, transparent 1px) 0 0 / 38px 38px,
+        linear-gradient(180deg, rgba(255,248,226,.72), rgba(225,196,142,.64));
+    }
+
+    .kicker {
+      display: inline-flex;
+      width: fit-content;
+      border: 1px solid currentColor;
+      padding: 8px 12px;
+      color: rgba(33, 26, 22, .68);
+      font-size: 13px;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(54px, 8vw, 118px);
+      line-height: .88;
+      letter-spacing: 0;
+    }
+
+    .title-sub {
+      margin-top: 22px;
+      font-size: 28px;
+      color: var(--red);
+      font-weight: 800;
+    }
+
+    .thesis {
+      margin: 32px 0 0;
+      max-width: 620px;
+      font-size: 19px;
+      line-height: 1.9;
+      color: rgba(33, 26, 22, .74);
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 34px;
+    }
+
+    .fact {
+      min-height: 112px;
+      padding: 15px;
+      border: 1px solid var(--line);
+      background: rgba(255, 247, 225, .42);
+    }
+
+    .fact strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .fact span {
+      font-size: 13px;
+      line-height: 1.55;
+      color: rgba(33, 26, 22, .66);
+    }
+
+    .nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .nav a {
+      color: #f4dfb6;
+      background: var(--iron);
+      text-decoration: none;
+      padding: 12px 15px;
+      border: 1px solid var(--iron);
+    }
+
+    .nav a.secondary {
+      color: var(--ink);
+      background: transparent;
+    }
+
+    .hero-art {
+      position: relative;
+      padding: 28px;
+      background:
+        radial-gradient(circle at 44% 36%, rgba(125, 43, 36, .18), transparent 26rem),
+        linear-gradient(135deg, rgba(34, 30, 25, .08), rgba(255, 246, 219, .28));
+      display: grid;
+      place-items: center;
+    }
+
+    .hero-art img {
+      width: min(100%, 720px);
+      max-height: 92vh;
+      object-fit: contain;
+      border: 1px solid rgba(33, 26, 22, .16);
+      box-shadow: 0 24px 80px rgba(33, 26, 22, .2);
+    }
+
+    .caption {
+      position: absolute;
+      left: 28px;
+      right: 28px;
+      bottom: 28px;
+      padding: 12px 14px;
+      background: rgba(33, 26, 22, .82);
+      color: #f3dec0;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .block {
+      padding: 34px;
+      border-right: 1px solid var(--line);
+    }
+
+    .block:last-child { border-right: 0; }
+
+    h2 {
+      margin: 0 0 20px;
+      font-size: 34px;
+      line-height: 1.1;
+    }
+
+    .source {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .source img {
+      width: 100%;
+      border: 1px solid rgba(33, 26, 22, .18);
+      mix-blend-mode: multiply;
+      background: #f7e8c6;
+    }
+
+    .quote-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .quote-list li {
+      padding: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 247, 225, .42);
+      line-height: 1.65;
+    }
+
+    .quote-list b {
+      color: var(--red);
+    }
+
+    .design-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .design-card {
+      min-height: 210px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255, 247, 225, .36);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .design-card::before {
+      content: "";
+      position: absolute;
+      inset: -50% -20% auto;
+      height: 120px;
+      background: var(--wash);
+      transform: rotate(-18deg);
+      opacity: .34;
+    }
+
+    .design-card strong {
+      position: relative;
+      display: block;
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+
+    .design-card p {
+      position: relative;
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.7;
+      color: rgba(33, 26, 22, .68);
+    }
+
+    .palette {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      height: 76px;
+      border: 1px solid rgba(33, 26, 22, .18);
+      margin-top: 18px;
+    }
+
+    .palette div { border-right: 1px solid rgba(255,255,255,.2); }
+    .palette div:last-child { border-right: 0; }
+
+    .moves {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .move {
+      min-height: 180px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      background: rgba(255, 247, 225, .36);
+    }
+
+    .move h3 {
+      margin: 0 0 12px;
+      font-size: 24px;
+    }
+
+    .move p {
+      margin: 0;
+      line-height: 1.7;
+      color: rgba(33, 26, 22, .68);
+    }
+
+    .footer-note {
+      padding: 22px 34px;
+      line-height: 1.7;
+      color: rgba(33, 26, 22, .62);
+      background: rgba(35, 25, 16, .05);
+      font-size: 14px;
+    }
+
+    @media (max-width: 1100px) {
+      .top,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .block { border-right: 0; border-bottom: 1px solid var(--line); }
+      .design-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .source { grid-template-columns: 180px 1fr; }
+    }
+
+    @media (max-width: 680px) {
+      .page { width: calc(100% - 20px); margin: 10px auto 24px; }
+      .intro, .block { padding: 24px; }
+      .facts, .design-grid, .moves, .source { grid-template-columns: 1fr; }
+      .hero-art { padding: 12px; }
+      .caption { position: static; margin-top: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="top">
+      <div class="intro">
+        <div>
+          <div class="kicker">春秋战国英雄化角色设计 · 01</div>
+          <h1>廉颇</h1>
+          <div class="title-sub">赵壁 · 负荆的玄甲老将</div>
+          <p class="thesis">他不是最快的矛，而是赵国最后还能站住的城墙。设计方向以《史记》和《战国策》的文字形象为一级依据，以《东周列国志》绣像为视觉原型，再转译成适合年轻人阅读的原创英雄化角色。</p>
+          <div class="facts">
+            <div class="fact"><strong>身份</strong><span>赵国良将，攻城野战有大功，以勇气闻于诸侯。</span></div>
+            <div class="fact"><strong>性格</strong><span>有傲气，但能负荆请罪；不是莽夫，是能顾全社稷的老将。</span></div>
+            <div class="fact"><strong>战法</strong><span>长平前期固壁不战，核心不是冲锋，而是沉稳防守。</span></div>
+            <div class="fact"><strong>晚年</strong><span>“被甲上马”，证明自己仍可用，形成强烈的老将悲剧感。</span></div>
+          </div>
+        </div>
+        <div class="nav">
+          <a href="index.html">返回总设计</a>
+          <a class="secondary" href="https://commons.wikimedia.org/wiki/File:%E5%BB%89%E9%A0%97.jpg">查看原始绣像</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="assets/concepts/lianpo-hero-v1.png" alt="廉颇英雄化角色概念设定图">
+        <div class="caption">原创概念设定 v1：重甲、壁盾、荆条、旧铁、赵国暗红、黄土与墨势。目标是建立自己的“春秋战国英雄化”语言，而不是模仿任何现有游戏。</div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="block">
+        <h2>原型依据</h2>
+        <div class="source">
+          <img src="assets/portraits/廉頗.jpg" alt="东周列国志廉颇绣像">
+          <ul class="quote-list">
+            <li><b>《史记》</b>：廉颇者，赵之良将也。此句确立他首先是“赵国良将”。</li>
+            <li><b>负荆请罪</b>：肉袒负荆，因宾客至蔺相如门谢罪。视觉符号转译为背后荆条。</li>
+            <li><b>长平守势</b>：赵军固壁不战。视觉符号转译为城墙式大盾与低重心姿态。</li>
+            <li><b>老而披甲</b>：一饭斗米，肉十斤，被甲上马。视觉符号转译为旧甲、马具与晚年仍战。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="block">
+        <h2>设计语言</h2>
+        <div class="design-grid">
+          <div class="design-card" style="--wash: linear-gradient(90deg, #6b5438, transparent);">
+            <strong>剪影</strong>
+            <p>宽肩、低重心、城墙盾、背后荆条。远看像一段会移动的赵国边墙。</p>
+          </div>
+          <div class="design-card" style="--wash: linear-gradient(90deg, #262522, transparent);">
+            <strong>武装</strong>
+            <p>旧铁札甲、厚肩甲、战钺或短戈。甲片有补钉和磨损，不做新亮银甲。</p>
+          </div>
+          <div class="design-card" style="--wash: linear-gradient(90deg, #7d2b24, transparent);">
+            <strong>情绪</strong>
+            <p>不是狂怒，是压住火气的沉稳。眼神硬，但负荆动作保留羞愧与气度。</p>
+          </div>
+          <div class="design-card" style="--wash: linear-gradient(90deg, #a6783c, transparent);">
+            <strong>元素</strong>
+            <p>土与金：黄土、旧铁、铜扣、城墙。墨势围绕盾牌，表示防守压迫感。</p>
+          </div>
+        </div>
+        <div class="palette">
+          <div style="background:#7d2b24"></div>
+          <div style="background:#4d271e"></div>
+          <div style="background:#3f3d36"></div>
+          <div style="background:#262522"></div>
+          <div style="background:#57442d"></div>
+          <div style="background:#a6783c"></div>
+          <div style="background:#c7a36c"></div>
+          <div style="background:#e7d4ad"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="block">
+        <h2>动作姿态</h2>
+        <div class="moves">
+          <div class="move"><h3>守壁</h3><p>大盾落地，身体半蹲，像城墙一样挡住敌军。对应长平前期固壁不战。</p></div>
+          <div class="move"><h3>负荆</h3><p>卸下一侧肩甲，背负荆条，头略低但脊背仍硬。对应将相和。</p></div>
+          <div class="move"><h3>被甲上马</h3><p>老年廉颇拉紧甲带，踏上马镫。不是轻盈冲锋，而是沉重推进。</p></div>
+        </div>
+      </div>
+      <div class="block">
+        <h2>游戏化定位</h2>
+        <ul class="quote-list">
+          <li><b>角色类型</b>：防守型统帅 / 坦克 / 阵地核心。</li>
+          <li><b>被动幻想</b>：老将余烈。受伤越多，站得越稳，防御与韧性提升。</li>
+          <li><b>核心技能</b>：固壁不战。插盾立阵，形成赵国壁垒，保护队友。</li>
+          <li><b>终极幻想</b>：赵壁不倒。展开城墙式战阵，敌人正面突破困难。</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="footer-note">
+      设计边界：此页将“史料文字”“后世绣像”“现代游戏化原创设计”分开标注。主视觉为本项目原创概念稿，不使用现有游戏 IP，不直接模仿特定在世艺术家风格。
+    </div>
+  </main>
+</body>
+</html>
