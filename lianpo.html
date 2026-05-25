@@ -213,6 +213,61 @@
       color: var(--red);
     }
 
+    .mark {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      padding: 3px 7px;
+      border: 1px solid currentColor;
+      font-size: 12px;
+      font-weight: 800;
+      margin-right: 6px;
+      white-space: nowrap;
+    }
+
+    .hist { color: #7d2b24; }
+    .image-ref { color: #215f56; }
+    .infer { color: #8a5c17; }
+    .fiction { color: #5b4b80; }
+
+    .evidence-strip {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .evidence-board {
+      padding: 34px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .evidence-item {
+      min-height: 174px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255, 247, 225, .4);
+    }
+
+    .evidence-item strong {
+      display: block;
+      font-size: 20px;
+      margin: 10px 0;
+    }
+
+    .evidence-item p {
+      margin: 0;
+      color: rgba(33, 26, 22, .68);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
     .design-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -304,13 +359,14 @@
 
       .block { border-right: 0; border-bottom: 1px solid var(--line); }
       .design-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .evidence-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .source { grid-template-columns: 180px 1fr; }
     }
 
     @media (max-width: 680px) {
       .page { width: calc(100% - 20px); margin: 10px auto 24px; }
-      .intro, .block { padding: 24px; }
-      .facts, .design-grid, .moves, .source { grid-template-columns: 1fr; }
+      .intro, .block, .evidence-board { padding: 24px; }
+      .facts, .design-grid, .moves, .source, .evidence-grid { grid-template-columns: 1fr; }
       .hero-art { padding: 12px; }
       .caption { position: static; margin-top: 10px; }
     }
@@ -339,7 +395,41 @@
       </div>
       <div class="hero-art">
         <img src="assets/concepts/lianpo-hero-v1.png" alt="廉颇英雄化角色概念设定图">
-        <div class="caption">原创概念设定 v1：重甲、壁盾、荆条、旧铁、赵国暗红、黄土与墨势。目标是建立自己的“春秋战国英雄化”语言，而不是模仿任何现有游戏。</div>
+        <div class="caption">
+          原创概念设定 v1。注意：图中“背后荆条”属于负荆请罪故事态，不应作为主战斗造型的常驻装备；下一版主造型会去掉或弱化，只在故事皮肤/剧情动作中出现。
+          <div class="evidence-strip">
+            <span class="mark hist">史料明确</span>
+            <span class="mark image-ref">古图参考</span>
+            <span class="mark infer">合理推导</span>
+            <span class="mark fiction">原创虚构</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="evidence-board">
+      <h2>元素证据标注</h2>
+      <div class="evidence-grid">
+        <div class="evidence-item">
+          <span class="mark hist">史料明确</span>
+          <strong>廉颇是赵国良将</strong>
+          <p>《史记》明说“廉颇者，赵之良将也”；攻城野战、长平守势、晚年被甲上马都属于文字依据。</p>
+        </div>
+        <div class="evidence-item">
+          <span class="mark image-ref">古图参考</span>
+          <strong>老将姿态与须髯</strong>
+          <p>《东周列国志》绣像提供了粗壮体态、武将束装、长须和前倾动作。它是后世造像，不是真实肖像。</p>
+        </div>
+        <div class="evidence-item">
+          <span class="mark infer">合理推导</span>
+          <strong>重甲、旧铁、低重心</strong>
+          <p>根据“良将”“固壁不战”“被甲上马”推导出防守型重甲老将。具体甲片样式不是史书逐项记载。</p>
+        </div>
+        <div class="evidence-item">
+          <span class="mark fiction">原创虚构</span>
+          <strong>壁盾、战钺、气场</strong>
+          <p>城墙式大盾、战钺造型、赵壁不倒技能、墨烟气场、固定色板都是游戏化原创设计语言。</p>
+        </div>
       </div>
     </section>
 
@@ -349,10 +439,10 @@
         <div class="source">
           <img src="assets/portraits/廉頗.jpg" alt="东周列国志廉颇绣像">
           <ul class="quote-list">
-            <li><b>《史记》</b>：廉颇者，赵之良将也。此句确立他首先是“赵国良将”。</li>
-            <li><b>负荆请罪</b>：肉袒负荆，因宾客至蔺相如门谢罪。视觉符号转译为背后荆条。</li>
-            <li><b>长平守势</b>：赵军固壁不战。视觉符号转译为城墙式大盾与低重心姿态。</li>
-            <li><b>老而披甲</b>：一饭斗米，肉十斤，被甲上马。视觉符号转译为旧甲、马具与晚年仍战。</li>
+            <li><span class="mark hist">史料明确</span><b>《史记》</b>：廉颇者，赵之良将也。此句确立他首先是“赵国良将”。</li>
+            <li><span class="mark hist">史料明确</span><b>负荆请罪</b>：肉袒负荆，因宾客至蔺相如门谢罪。荆条只适合剧情态，不适合常驻战斗态。</li>
+            <li><span class="mark hist">史料明确</span><b>长平守势</b>：赵军固壁不战。<span class="mark infer">合理推导</span>防守型角色定位。</li>
+            <li><span class="mark hist">史料明确</span><b>老而披甲</b>：一饭斗米，肉十斤，被甲上马。<span class="mark infer">合理推导</span>旧甲、马具与晚年仍战。</li>
           </ul>
         </div>
       </div>
@@ -361,19 +451,19 @@
         <div class="design-grid">
           <div class="design-card" style="--wash: linear-gradient(90deg, #6b5438, transparent);">
             <strong>剪影</strong>
-            <p>宽肩、低重心、城墙盾、背后荆条。远看像一段会移动的赵国边墙。</p>
+            <p><span class="mark infer">合理推导</span>宽肩、低重心。<span class="mark fiction">原创虚构</span>城墙盾。荆条改为剧情态，不放进主剪影。</p>
           </div>
           <div class="design-card" style="--wash: linear-gradient(90deg, #262522, transparent);">
             <strong>武装</strong>
-            <p>旧铁札甲、厚肩甲、战钺或短戈。甲片有补钉和磨损，不做新亮银甲。</p>
+            <p><span class="mark infer">合理推导</span>旧铁札甲、厚肩甲。<span class="mark fiction">原创虚构</span>战钺/短戈的具体造型。</p>
           </div>
           <div class="design-card" style="--wash: linear-gradient(90deg, #7d2b24, transparent);">
             <strong>情绪</strong>
-            <p>不是狂怒，是压住火气的沉稳。眼神硬，但负荆动作保留羞愧与气度。</p>
+            <p><span class="mark hist">史料明确</span>傲而能认错。<span class="mark infer">合理推导</span>压住火气的沉稳，不做狂战士。</p>
           </div>
           <div class="design-card" style="--wash: linear-gradient(90deg, #a6783c, transparent);">
             <strong>元素</strong>
-            <p>土与金：黄土、旧铁、铜扣、城墙。墨势围绕盾牌，表示防守压迫感。</p>
+            <p><span class="mark fiction">原创虚构</span>土金色板、墨势、城墙视觉系统。它服务于“守势老将”的现代转译。</p>
           </div>
         </div>
         <div class="palette">
@@ -393,18 +483,18 @@
       <div class="block">
         <h2>动作姿态</h2>
         <div class="moves">
-          <div class="move"><h3>守壁</h3><p>大盾落地，身体半蹲，像城墙一样挡住敌军。对应长平前期固壁不战。</p></div>
-          <div class="move"><h3>负荆</h3><p>卸下一侧肩甲，背负荆条，头略低但脊背仍硬。对应将相和。</p></div>
-          <div class="move"><h3>被甲上马</h3><p>老年廉颇拉紧甲带，踏上马镫。不是轻盈冲锋，而是沉重推进。</p></div>
+          <div class="move"><h3>守壁</h3><p><span class="mark hist">史料明确</span>固壁不战。<span class="mark fiction">原创虚构</span>大盾落地、城墙式防线动作。</p></div>
+          <div class="move"><h3>负荆</h3><p><span class="mark hist">史料明确</span>负荆请罪。它是剧情动作/故事皮肤，不是主战斗常态。</p></div>
+          <div class="move"><h3>被甲上马</h3><p><span class="mark hist">史料明确</span>被甲上马。<span class="mark infer">合理推导</span>马具、旧甲、晚年仍战的动作设计。</p></div>
         </div>
       </div>
       <div class="block">
         <h2>游戏化定位</h2>
         <ul class="quote-list">
-          <li><b>角色类型</b>：防守型统帅 / 坦克 / 阵地核心。</li>
-          <li><b>被动幻想</b>：老将余烈。受伤越多，站得越稳，防御与韧性提升。</li>
-          <li><b>核心技能</b>：固壁不战。插盾立阵，形成赵国壁垒，保护队友。</li>
-          <li><b>终极幻想</b>：赵壁不倒。展开城墙式战阵，敌人正面突破困难。</li>
+          <li><span class="mark infer">合理推导</span><b>角色类型</b>：防守型统帅 / 坦克 / 阵地核心。</li>
+          <li><span class="mark fiction">原创虚构</span><b>被动幻想</b>：老将余烈。受伤越多，站得越稳，防御与韧性提升。</li>
+          <li><span class="mark fiction">原创虚构</span><b>核心技能</b>：固壁不战。插盾立阵，形成赵国壁垒，保护队友。</li>
+          <li><span class="mark fiction">原创虚构</span><b>终极幻想</b>：赵壁不倒。展开城墙式战阵，敌人正面突破困难。</li>
         </ul>
       </div>
     </section>
