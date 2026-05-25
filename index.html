@@ -568,6 +568,181 @@
       border-bottom: 6px solid transparent;
     }
 
+    /* Character design board */
+    .d {
+      background:
+        radial-gradient(circle at 18% 12%, rgba(145, 42, 28, .16), transparent 24rem),
+        radial-gradient(circle at 88% 18%, rgba(22, 89, 84, .16), transparent 26rem),
+        linear-gradient(135deg, #efe0bd, #d6bd88);
+    }
+
+    .character-board { padding: 42px; }
+
+    .board-intro {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(360px, 1.1fr);
+      gap: 34px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .board-intro h2 {
+      font-size: clamp(42px, 7vw, 92px);
+      line-height: .96;
+      margin: 0 0 18px;
+      letter-spacing: 0;
+    }
+
+    .board-intro p {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.9;
+      color: rgba(35, 27, 23, .72);
+    }
+
+    .style-rules {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .rule {
+      min-height: 132px;
+      padding: 16px;
+      border: 1px solid rgba(35, 27, 23, .18);
+      background: rgba(255, 246, 221, .52);
+      box-shadow: 0 12px 30px rgba(35, 27, 23, .08);
+    }
+
+    .rule strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .rule span {
+      display: block;
+      font-size: 13px;
+      line-height: 1.55;
+      color: rgba(35, 27, 23, .64);
+    }
+
+    .character-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .character-card {
+      position: relative;
+      min-height: 510px;
+      overflow: hidden;
+      border: 1px solid rgba(35, 27, 23, .2);
+      background: linear-gradient(180deg, rgba(255, 247, 225, .82), rgba(233, 211, 163, .72));
+      box-shadow: 0 20px 54px rgba(35, 27, 23, .14);
+    }
+
+    .character-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .34;
+      background: var(--aura);
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+
+    .character-card::after {
+      content: "";
+      position: absolute;
+      inset: auto 18px 168px 18px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(35, 27, 23, .34), transparent);
+    }
+
+    .source-img {
+      position: relative;
+      height: 310px;
+      display: grid;
+      place-items: end center;
+      padding: 18px 18px 0;
+      z-index: 1;
+    }
+
+    .source-img img {
+      max-width: 100%;
+      max-height: 292px;
+      object-fit: contain;
+      filter: sepia(.18) contrast(1.04);
+      mix-blend-mode: multiply;
+    }
+
+    .character-meta {
+      position: relative;
+      z-index: 2;
+      padding: 18px;
+      background: rgba(255, 247, 225, .84);
+      min-height: 200px;
+    }
+
+    .character-meta h3 {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      margin: 0 0 10px;
+      font-size: 26px;
+    }
+
+    .character-meta h3 span {
+      font-size: 12px;
+      color: rgba(35, 27, 23, .52);
+      white-space: nowrap;
+    }
+
+    .tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .tags b {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 8px;
+      border: 1px solid rgba(35, 27, 23, .18);
+      background: rgba(255, 255, 255, .32);
+    }
+
+    .character-meta p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.6;
+      color: rgba(35, 27, 23, .68);
+    }
+
+    .aura-label {
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      z-index: 3;
+      padding: 7px 10px;
+      background: rgba(35, 27, 23, .86);
+      color: #f8e4bd;
+      font-size: 12px;
+    }
+
+    .design-note {
+      margin-top: 20px;
+      padding: 18px 20px;
+      border: 1px solid rgba(35, 27, 23, .16);
+      background: rgba(255, 247, 225, .54);
+      color: rgba(35, 27, 23, .66);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
     @media (max-width: 1050px) {
       .topbar {
         align-items: flex-start;
@@ -590,6 +765,15 @@
         grid-template-columns: 1fr;
       }
 
+      .board-intro {
+        grid-template-columns: 1fr;
+      }
+
+      .style-rules,
+      .character-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .panel {
         border-right: 0;
         border-bottom: 1px solid rgba(35, 27, 23, .14);
@@ -603,6 +787,9 @@
       .portrait-row { grid-template-columns: 1fr; }
       .portrait-card { min-height: 128px; }
       .hero-visual { min-height: 740px; }
+      .character-board { padding: 22px; }
+      .style-rules,
+      .character-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -613,13 +800,14 @@
         <div class="seal">周</div>
         <div>
           <h1>列国风云 · 互动绘本设计</h1>
-          <div class="subtitle">三版视觉方向：青铜画卷 / 历史侦探 / 战略史诗</div>
+          <div class="subtitle">三版界面方向 + 一版人物设定：青铜画卷 / 历史侦探 / 战略史诗 / 列国墨相</div>
         </div>
       </div>
       <nav class="switcher" aria-label="选择设计版本">
         <button class="active" data-target="concept-a">甲版：青铜画卷</button>
         <button data-target="concept-b">乙版：历史侦探</button>
         <button data-target="concept-c">丙版：战略史诗</button>
+        <button data-target="concept-d">人物：列国墨相</button>
       </nav>
     </header>
 
@@ -860,6 +1048,111 @@
               <div class="node" style="left:354px;top:96px;">战争</div>
               <div class="node" style="left:288px;top:178px;">统一</div>
             </div>
+          </div>
+        </div>
+      </article>
+
+      <article id="concept-d" class="concept d">
+        <div class="character-board">
+          <div class="board-intro">
+            <div>
+              <div class="kicker">人物设定板 · Wikimedia 绣像底库</div>
+              <h2>列国墨相</h2>
+              <p>以《东周列国志》绣像为人物原型，转译成适合互动绘本的原创国风角色系统。人物不只靠服饰区分，而是用水、火、风、土、金的气场表现性格、命运和历史作用。</p>
+            </div>
+            <div class="style-rules">
+              <div class="rule"><strong>水</strong><span>隐忍、谋略、回旋。用于勾践、范蠡、西施、越国线。</span></div>
+              <div class="rule"><strong>火</strong><span>战意、暴烈、冲突。用于白起、吴起、长平、火牛阵。</span></div>
+              <div class="rule"><strong>风</strong><span>游说、刺杀、流亡。用于苏秦、张仪、荆轲、重耳。</span></div>
+              <div class="rule"><strong>土</strong><span>守势、根基、老成。用于廉颇、晋文公、宗法秩序。</span></div>
+              <div class="rule"><strong>金</strong><span>法度、兵器、制度。用于商鞅、秦王政、秦国崛起。</span></div>
+            </div>
+          </div>
+
+          <div class="character-grid">
+            <div class="character-card" style="--aura: radial-gradient(circle at 50% 20%, rgba(179, 49, 32, .34), transparent 18rem), linear-gradient(140deg, rgba(136, 39, 24, .22), transparent 70%);">
+              <div class="aura-label">霸主 · 火土</div>
+              <div class="source-img"><img src="assets/portraits/齊桓公.jpg" alt="齐桓公绣像原型"></div>
+              <div class="character-meta">
+                <h3>齐桓公 <span>齐国</span></h3>
+                <div class="tags"><b>春秋首霸</b><b>尊王攘夷</b><b>管仲</b></div>
+                <p>网页转译：宽袍大袖、肩线稳定，背后用朱砂火纹和厚土色块表现“诸侯会盟”的压场感。</p>
+              </div>
+            </div>
+
+            <div class="character-card" style="--aura: radial-gradient(circle at 38% 18%, rgba(46, 93, 80, .34), transparent 18rem), linear-gradient(155deg, rgba(93, 68, 38, .22), transparent 72%);">
+              <div class="aura-label">流亡 · 风土</div>
+              <div class="source-img"><img src="assets/portraits/晉文公.jpg" alt="晋文公绣像原型"></div>
+              <div class="character-meta">
+                <h3>晋文公 <span>晋国</span></h3>
+                <div class="tags"><b>重耳流亡</b><b>城濮之战</b><b>归国称霸</b></div>
+                <p>网页转译：脸部更清瘦，衣袂带风，外轮廓有旅尘和裂帛纹，强调十九年流亡后的坚忍。</p>
+              </div>
+            </div>
+
+            <div class="character-card" style="--aura: radial-gradient(circle at 52% 20%, rgba(27, 92, 111, .28), transparent 18rem), linear-gradient(135deg, rgba(21, 74, 64, .24), transparent 70%);">
+              <div class="aura-label">问鼎 · 水火</div>
+              <div class="source-img"><img src="assets/portraits/楚莊王.jpg" alt="楚庄王绣像原型"></div>
+              <div class="character-meta">
+                <h3>楚庄王 <span>楚国</span></h3>
+                <div class="tags"><b>一鸣惊人</b><b>问鼎中原</b><b>楚文化</b></div>
+                <p>网页转译：冠服更高阔，加入楚纹、漆器黑红和水波形气场，表现南方大国的神秘与扩张。</p>
+              </div>
+            </div>
+
+            <div class="character-card" style="--aura: radial-gradient(circle at 50% 28%, rgba(34, 103, 112, .34), transparent 18rem), linear-gradient(180deg, rgba(28, 77, 83, .2), transparent 72%);">
+              <div class="aura-label">隐忍 · 暗水</div>
+              <div class="source-img"><img src="assets/portraits/勾踐.jpg" alt="勾践绣像原型"></div>
+              <div class="character-meta">
+                <h3>勾践 <span>越国</span></h3>
+                <div class="tags"><b>卧薪尝胆</b><b>吴越争霸</b><b>复国</b></div>
+                <p>网页转译：减少王者外放感，加入低垂眉眼、暗水纹、薪柴剪影，让孩子一眼记住“忍”。</p>
+              </div>
+            </div>
+
+            <div class="character-card" style="--aura: radial-gradient(circle at 54% 18%, rgba(120, 92, 52, .34), transparent 18rem), linear-gradient(150deg, rgba(54, 48, 38, .2), transparent 70%);">
+              <div class="aura-label">老将 · 土金</div>
+              <div class="source-img"><img src="assets/portraits/廉頗.jpg" alt="廉颇绣像原型"></div>
+              <div class="character-meta">
+                <h3>廉颇 <span>赵国</span></h3>
+                <div class="tags"><b>负荆请罪</b><b>长平前线</b><b>守势名将</b></div>
+                <p>网页转译：厚甲、低重心、粗墨胡须，背景用盾墙和土色山势，形成稳守型人物识别。</p>
+              </div>
+            </div>
+
+            <div class="character-card" style="--aura: radial-gradient(circle at 50% 18%, rgba(67, 99, 145, .28), transparent 18rem), linear-gradient(145deg, rgba(217, 181, 92, .2), transparent 72%);">
+              <div class="aura-label">文胆 · 金水</div>
+              <div class="source-img"><img src="assets/portraits/藺相如.jpg" alt="蔺相如绣像原型"></div>
+              <div class="character-meta">
+                <h3>蔺相如 <span>赵国</span></h3>
+                <div class="tags"><b>完璧归赵</b><b>渑池之会</b><b>将相和</b></div>
+                <p>网页转译：手势和目光要比武将更锋利，背景用玉璧圆光和冷金线条表现“文臣的胆”。</p>
+              </div>
+            </div>
+
+            <div class="character-card" style="--aura: radial-gradient(circle at 40% 20%, rgba(50, 78, 115, .32), transparent 18rem), linear-gradient(135deg, rgba(33, 38, 52, .26), transparent 70%);">
+              <div class="aura-label">刺客 · 疾风</div>
+              <div class="source-img"><img src="assets/portraits/荊軻.jpg" alt="荆轲绣像原型"></div>
+              <div class="character-meta">
+                <h3>荆轲 <span>燕国</span></h3>
+                <div class="tags"><b>易水送别</b><b>图穷匕见</b><b>刺秦</b></div>
+                <p>网页转译：衣角像风刃，背景有冷蓝墨势和一点朱砂，表现悲壮而不是单纯“帅”。</p>
+              </div>
+            </div>
+
+            <div class="character-card" style="--aura: radial-gradient(circle at 52% 18%, rgba(163, 69, 46, .28), transparent 18rem), linear-gradient(160deg, rgba(44, 80, 94, .22), transparent 72%);">
+              <div class="aura-label">亡国 · 风火</div>
+              <div class="source-img"><img src="assets/portraits/太子丹.jpg" alt="太子丹绣像原型"></div>
+              <div class="character-meta">
+                <h3>太子丹 <span>燕国</span></h3>
+                <div class="tags"><b>燕秦旧怨</b><b>派遣荆轲</b><b>战国末局</b></div>
+                <p>网页转译：华服中带破败感，背后用碎裂宫墙和红色风纹，提示“豪赌式救国”的命运。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="design-note">
+            原型图来自 Wikimedia Commons 的《東周列國志》分类，作为公共领域绣像参考使用。下一轮如果确定这个方向，可以把这些原型统一重绘为原创半写实国风立绘，并为每个人生成水、火、风、土、金五类动态气场。
           </div>
         </div>
       </article>
